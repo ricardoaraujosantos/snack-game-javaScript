@@ -60,6 +60,14 @@ function startGame() {
  if(snack[0].y > 15 * box && direction === 'down') snack[0].y = 0;
  if(snack[0].y < 0 && direction === 'up') snack[0].y = 16 * box;
 
+ //Caso a cabeça se choque com o corpo fim de game
+    for(i = 1; i < snack.length; i++) {
+        if(snack[0].x === snack[i].x && snack[0].y === snack[i].y){
+            clearInterval(game);
+            alert("Fim de jogo!")
+        }
+    }
+
     getBackground();
     getSnack();
     getFood();
@@ -73,7 +81,15 @@ function startGame() {
     if(direction === 'up') snackY -= box;
     if(direction === 'down') snackY += box;
 
-     snack.pop();//cada vez que a cobrinha for direcionada o pop vai remover o ultima posição dando a sensação de movimentação
+    //Condição para fazer a cobrinha decrementar cada vez que se chocar com a comida
+    if(snackX !== food.x || snackY !== food.y) {
+        snack.pop();
+    }else{
+        food.x = Math.floor(Math.random() * 15 + 1) * box;
+        food.y = Math.floor(Math.random() * 15 + 1) * box;  
+    }
+
+     //cada vez que a cobrinha for direcionada o pop vai remover o ultima posição dando a sensação de movimentação
 
      let newHead = {
          x: snackX,
