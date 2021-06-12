@@ -7,12 +7,18 @@ let box = 32;
 //Array cobrinha e posição de inicio
 let snack = [];
 snack[0] = {
-     x: 8 * box,
+     x: 8 * box,//posição inicial
      y: 8 * box
  };
 
+ //Array comidinha
+ let food = {
+     x: Math.floor(Math.random() * 15 + 1) * box,
+     y: Math.floor(Math.random() * 15 + 1) * box
+ }
+
 //Criando background
-function getbackground() {
+function getBackground() {
     context.fillStyle = 'grey';
     context.fillRect(0 , 0, 16 * box, 16 * box);
 };
@@ -23,6 +29,12 @@ function getSnack() {
         context.fillStyle = "yellow";
         context.fillRect(snack[i].x, snack[i].y, box, box);
     }
+};
+
+//Criar comida
+function getFood(){
+    context.fillStyle = 'red';
+    context.fillRect(food.x, food.y, box, box)
 };
 
 //Criando um evento de teclado que vai receber updateDirection e direcionar a cobrinha conforme a tecla digitada
@@ -48,8 +60,9 @@ function startGame() {
  if(snack[0].y > 15 * box && direction === 'down') snack[0].y = 0;
  if(snack[0].y < 0 && direction === 'up') snack[0].y = 16 * box;
 
-    getbackground();
+    getBackground();
     getSnack();
+    getFood();
     
     let snackX = snack[0].x;
     let snackY = snack[0].y;
@@ -69,7 +82,6 @@ function startGame() {
 
      snack.unshift(newHead);//E cada vez que a cobrinha se movimentar como sera removido a ultima posição sera adicionada uma nova cabeça na primeira posição com o unsshift
 
-    
 };
 
 //Vai setar a velocidade em que o jogo vai se movimentar
