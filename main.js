@@ -1,4 +1,13 @@
 
+//Botões inicio e pause
+let btnStart = document.getElementById('btn-start');
+let btnStop = document.getElementById('btn-stop');
+
+
+let game = [];//Quando clicar no botão vai setar o inicio ou pause do jogo 
+btnStart.onclick = () => { game = setInterval(startGame, 100); };
+btnStop.onclick = () => { clearInterval(game)};
+
 //Ligando o index canvas definindo contexto 2d e criando o tamanho do nosso box 
 let canvas = document.getElementById('snack');
 let context = canvas.getContext('2d');
@@ -18,13 +27,13 @@ snack[0] = {
  }
 
 //Criando background
-function getBackground() {
+getBackground = () => {
     context.fillStyle = 'grey';
     context.fillRect(0 , 0, 16 * box, 16 * box);
 };
 
 //Criando a cobrinha
-function getSnack() {
+getSnack = () => {
     for(i = 0; i < snack.length; i++){
         context.fillStyle = "yellow";
         context.fillRect(snack[i].x, snack[i].y, box, box);
@@ -32,7 +41,7 @@ function getSnack() {
 };
 
 //Criar comida
-function getFood(){
+getFood = () => {
     context.fillStyle = 'red';
     context.fillRect(food.x, food.y, box, box)
 };
@@ -52,7 +61,9 @@ function updateDirection(event) {
 //Criando movimentos da cobrinha
 let direction = 'right';
 
-function startGame() {
+startGame = () => {
+
+
 
  //Condição para fazer a cobrinha ultrapassar a posição 16 do background e retornar na posição 0, do outro lado
  if(snack[0].x > 15 * box && direction === 'right') snack[0].x = 0;
@@ -89,8 +100,6 @@ function startGame() {
         food.y = Math.floor(Math.random() * 15 + 1) * box;  
     }
 
-     //cada vez que a cobrinha for direcionada o pop vai remover o ultima posição dando a sensação de movimentação
-
      let newHead = {
          x: snackX,
          y: snackY
@@ -100,5 +109,5 @@ function startGame() {
 
 };
 
-//Vai setar a velocidade em que o jogo vai se movimentar
-let game = setInterval(startGame, 100);
+
+
