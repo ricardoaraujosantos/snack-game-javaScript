@@ -5,7 +5,7 @@ let btnStop = document.getElementById('btn-stop');
 
 
 let game = [];//Quando clicar no botão vai setar o inicio ou pause do jogo 
-btnStart.onclick = () => { game = setInterval(startGame, 100); };
+btnStart.onclick = () => { game = setInterval(startGame, 200);};
 btnStop.onclick = () => { clearInterval(game)};
 
 //Ligando o index canvas definindo contexto 2d e criando o tamanho do nosso box 
@@ -20,7 +20,7 @@ snack[0] = {
      y: 8 * box
  };
 
- //Array comidinha
+ //objeto comidinha
  let food = {
      x: Math.floor(Math.random() * 15 + 1) * box,
      y: Math.floor(Math.random() * 15 + 1) * box
@@ -28,14 +28,14 @@ snack[0] = {
 
 //Criando background
 getBackground = () => {
-    context.fillStyle = 'grey';
+    context.fillStyle = '#212F3C';
     context.fillRect(0 , 0, 16 * box, 16 * box);
 };
 
 //Criando a cobrinha
 getSnack = () => {
     for(i = 0; i < snack.length; i++){
-        context.fillStyle = "yellow";
+        context.fillStyle = "#1E8449";
         context.fillRect(snack[i].x, snack[i].y, box, box);
     }
 };
@@ -62,8 +62,6 @@ function updateDirection(event) {
 let direction = 'right';
 
 startGame = () => {
-
-
 
  //Condição para fazer a cobrinha ultrapassar a posição 16 do background e retornar na posição 0, do outro lado
  if(snack[0].x > 15 * box && direction === 'right') snack[0].x = 0;
@@ -97,7 +95,7 @@ startGame = () => {
         snack.pop();
     }else{
         food.x = Math.floor(Math.random() * 15 + 1) * box;
-        food.y = Math.floor(Math.random() * 15 + 1) * box;  
+        food.y = Math.floor(Math.random() * 15 + 1) * box;
     }
 
      let newHead = {

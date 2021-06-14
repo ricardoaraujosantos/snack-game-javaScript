@@ -1,0 +1,44 @@
+body{
+    font-family:fantasy;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 90vh;
+    width: 90;
+    background: url('img/foto-space.jpg') no-repeat;
+    background-size: 200vh;
+};
+
+:root{
+    --cor-primary-start: #27AE60 ;
+    --cor-secundy-stop: #6C3483 ;
+}
+
+.start{
+    display: flex;
+    position: absolute;
+    background-color: #27AE60;
+    color: white;
+    padding: 10px;
+    margin-right: 400px;
+    margin-bottom: 565px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+}
+.stop{
+    display: flex;
+    position: absolute;
+    background-color: #6C3483;
+    color: white;
+    padding: 10px;
+    margin-left: 400px;
+    margin-bottom: 565px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+};
