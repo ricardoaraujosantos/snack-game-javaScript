@@ -3,9 +3,16 @@
 let btnStart = document.getElementById('btn-start');
 let btnStop = document.getElementById('btn-stop');
 
+let audioGame = {file: "file/title.mp3"};
+let audio = document.getElementById('audio');
+let game = [];
 
-let game = [];//Quando clicar no botão vai setar o inicio ou pause do jogo 
-btnStart.onclick = () => { game = setInterval(startGame, 200);};
+//Quando clicar no botão vai setar o inicio ou pause do jogo e audio
+btnStart.onclick = () => { 
+    game = setInterval(startGame, 200);
+  
+    audio.src = audioGame.file;  //Add audio ao game
+};
 btnStop.onclick = () => { clearInterval(game)};
 
 //Ligando o index canvas definindo contexto 2d e criando o tamanho do nosso box 
