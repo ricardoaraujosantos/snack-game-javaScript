@@ -139,7 +139,7 @@ startGame = () => {
 
         let pontos = document.getElementById('score');
         score += 10;
-        pontos.innerHTML = `<span>SCORE : ${ score } Pts</span>`;
+        pontos.innerHTML = `<span>SCORE : ${ score } Pts</span></br>`;
 
     }
 
