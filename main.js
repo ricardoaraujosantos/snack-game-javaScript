@@ -39,10 +39,16 @@ getBackground = () => {
     context.fillRect(0 , 0, 16 * box, 16 * box);
 };
 
+//define uma nova imagem a ser usada no desenho snake
+let imgHead = new Image();
+imgHead.src = "img/head-snake.jpg";
+
+
 //Criando a cobrinha
 getSnack = () => {
     for(i = 0; i < snack.length; i++){
-        context.fillStyle = "#1E8449";
+        let patternImg = context.createPattern(imgHead, 'repeat');
+        context.fillStyle = patternImg;
         context.fillRect(snack[i].x, snack[i].y, box-1, box-1);
     }
 };
