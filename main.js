@@ -36,7 +36,7 @@ getBackground = () => {
 getSnack = () => {
     for(i = 0; i < snack.length; i++){
         context.fillStyle = "#1E8449";
-        context.fillRect(snack[i].x, snack[i].y, box, box);
+        context.fillRect(snack[i].x, snack[i].y, box-1, box-1);
     }
 };
 
@@ -60,6 +60,34 @@ function updateDirection(event) {
 
 //Criando movimentos da cobrinha
 let direction = 'right';
+
+//Variavel score 
+let score = 0;
+
+//Função cria nova comida e faz um loop em cada elemento snack adicionando a comida
+function snakeNotFood(){
+    if(food.x){
+        prevFoodX = food.x;
+    }
+    if(food.y){
+        prevFoodY = food.y;
+    }
+//Criando nova comida aleatorio
+    food.x = Math.floor(Math.random() * 15 + 1) * box;
+    food.y = Math.floor(Math.random() * 15 + 1) * box;
+    
+
+    if(prevFoodX === food.x && prevFoodY === food.y){
+        snakeNotFood();
+    }else{
+       snack.forEach(function(elem){
+           if(((elem.x === food.x) && (elem.y === food.y))){
+           snakeNotFood();
+           }
+       });
+            
+        };
+    }
 
 startGame = () => {
 
@@ -90,12 +118,16 @@ startGame = () => {
     if(direction === 'up') snackY -= box;
     if(direction === 'down') snackY += box;
 
-    //Condição para fazer a cobrinha decrementar cada vez que se chocar com a comida
+    //Condição enquanto não se chocar com a comida permanece uma só cabeça do contrario acrescenta uma cabeça ao corpo e pontoa 10 pontos no score 
     if(snackX !== food.x || snackY !== food.y) {
         snack.pop();
     }else{
-        food.x = Math.floor(Math.random() * 15 + 1) * box;
-        food.y = Math.floor(Math.random() * 15 + 1) * box;
+        snakeNotFood();
+
+        let pontos = document.getElementById('score');
+        score += 10;
+        pontos.innerHTML = `<span>SCORE : ${ score } Pts</span>`;
+
     }
 
      let newHead = {
@@ -106,6 +138,3 @@ startGame = () => {
      snack.unshift(newHead);//E cada vez que a cobrinha se movimentar como sera removido a ultima posição sera adicionada uma nova cabeça na primeira posição com o unsshift
 
 };
-
-
-
