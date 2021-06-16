@@ -1,7 +1,7 @@
 # snake-game-javascript
 ## Projeto recriando snake game | Aula de javascript  da Gabriela Pinheiro | Digital Innovetion One
 
-A aula incerra o projeto com essa estrutura 🐍🚀
+A aula encerra o projeto com essa estrutura 🐍🚀
 
 ![foto interface do projeto original snake game](https://github.com/ricardoaraujosantos/snake-game-javaScript/blob/main/img/snake-game.png)
 
