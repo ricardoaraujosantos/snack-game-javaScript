@@ -13,10 +13,10 @@ Fiz algumas modificações no codigo, add um novo tema, add botões de iniciar e
 
 ### objetivos a ser Dev
 
-####[ ] incrementar level
-#### [ ] Add aumento velocidade para cada level alcançado 
-#### [ ] Add sons 
-#### [ ] Aperfeiçoar o background do tabuleiro 
+#### [  ] incrementar level
+#### [  ] Add aumento velocidade para cada level alcançado 
+#### [  ] Add sons 
+#### [  ] Aperfeiçoar o background do tabuleiro 
 
 ## Game em execução 
 
