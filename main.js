@@ -13,7 +13,7 @@ btnStart.onclick = () => {
   
     audio.src = audioGame.file;  //Add audio ao game
 };
-btnStop.onclick = () => { clearInterval(game)};
+btnStop.onclick = () => clearInterval(game);
 
 //Ligando o index canvas definindo contexto 2d e criando o tamanho do nosso box 
 let canvas = document.getElementById('snack');
@@ -34,7 +34,7 @@ snack[0] = {
  }
 
 //Criando background
-getBackground = () => {
+function getBackground() {
     context.fillStyle = '#212F3C';
     context.fillRect(0 , 0, 16 * box, 16 * box);
 };
@@ -45,7 +45,7 @@ imgHead.src = "img/head-snake.jpg";
 
 
 //Criando a cobrinha
-getSnack = () => {
+function getSnack() {
     for(i = 0; i < snack.length; i++){
         let patternImg = context.createPattern(imgHead, 'repeat');
         context.fillStyle = patternImg;
@@ -54,7 +54,7 @@ getSnack = () => {
 };
 
 //Criar comida
-getFood = () => {
+function getFood() {
     context.fillStyle = 'red';
     context.fillRect(food.x, food.y, box, box)
 };
@@ -78,7 +78,7 @@ let direction = 'right';
 let score = 0;
 
 //Função cria nova comida e faz um loop em cada elemento snack adicionando a comida
-function snakeNotFood(){
+function snakeNotFood() {
     if(food.x){
         prevFoodX = food.x;
     }
@@ -102,7 +102,7 @@ function snakeNotFood(){
         };
     }
 
-startGame = () => {
+function startGame() {
 
  //Condição para fazer a cobrinha ultrapassar a posição 16 do background e retornar na posição 0, do outro lado
  if(snack[0].x > 15 * box && direction === 'right') snack[0].x = 0;
